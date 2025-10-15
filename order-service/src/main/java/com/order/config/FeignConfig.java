@@ -1,6 +1,7 @@
-package com.order;
+package com.order.config;
 
 
+import com.order.exception.FeignCustomErrorDecoder;
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

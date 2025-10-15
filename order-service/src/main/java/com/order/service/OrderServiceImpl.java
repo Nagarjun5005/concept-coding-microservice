@@ -1,6 +1,12 @@
-package com.order;
+package com.order.service;
 
 
+import com.order.model.Order;
+import com.order.repository.OrderRepository;
+import com.order.client.ProductClient;
+import com.order.dto.OrderDTO;
+import com.order.dto.ProductDTO;
+import com.order.exception.ResourceNotFoundExcpetion;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
      @Autowired
      private OrderRepository orderRepository;

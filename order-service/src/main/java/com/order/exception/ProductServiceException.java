@@ -1,4 +1,4 @@
-package com.order;
+package com.order.exception;
 
 public class ProductServiceException extends RuntimeException{
 

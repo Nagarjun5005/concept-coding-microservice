@@ -1,4 +1,4 @@
-package com.order;
+package com.order.exception;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;

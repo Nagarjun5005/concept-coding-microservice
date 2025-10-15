@@ -1,4 +1,4 @@
-package com.order;
+package com.order.model;
 
 
 import jakarta.persistence.*;
