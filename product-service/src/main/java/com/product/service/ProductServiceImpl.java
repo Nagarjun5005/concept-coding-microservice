@@ -1,6 +1,10 @@
-package com.product;
+package com.product.service;
 
 
+import com.product.dto.ProductDTO;
+import com.product.repository.ProductRepository;
+import com.product.exception.ResourceNotFoundExcpetion;
+import com.product.model.Product;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
