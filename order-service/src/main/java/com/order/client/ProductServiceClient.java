@@ -2,6 +2,7 @@ package com.order.client;
 
 
 import com.order.dto.ProductDTO;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ public class ProductServiceClient {
     @Autowired
     private ProductClient productClient;
 
+    @Bulkhead(name = "productService",fallbackMethod = "productServiceFallback",type = Bulkhead.Type.SEMAPHORE)
     @RateLimiter(name = "productService",fallbackMethod = "productServiceFallback")
     public ProductDTO getProductById(Long id){
         return productClient.getProductById(id);
