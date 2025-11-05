@@ -1,6 +1,7 @@
 package com.order.service;
 
 
+import com.order.client.ProductServiceClient;
 import com.order.model.Order;
 import com.order.repository.OrderRepository;
 import com.order.client.ProductClient;
@@ -27,10 +28,15 @@ public class OrderServiceImpl implements OrderService {
      @Autowired
      private ProductClient productClient;
 
+     @Autowired
+     private ProductServiceClient productServiceClient;
+
     @Override
     public OrderDTO createOrder(Long productId, Integer quantity) {
         //create the order
-        ProductDTO productById = productClient.getProductById(productId);
+       // ProductDTO productById = productClient.getProductById(productId);
+        ProductDTO productById = productServiceClient.getProductById(productId);
+
         Double totalPrice = productById.getPrice() * quantity;
         Order order=new Order();
         order.setProductId(productId);
